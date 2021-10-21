@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jeu de la Vie Graphique", "Jeu de la Vie Graphique\Jeu de la Vie Graphique.csproj", "{89768138-444A-4E25-8648-BD43D9C79EC2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{89768138-444A-4E25-8648-BD43D9C79EC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89768138-444A-4E25-8648-BD43D9C79EC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89768138-444A-4E25-8648-BD43D9C79EC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89768138-444A-4E25-8648-BD43D9C79EC2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C8F1DCF4-3BD9-4121-A9CB-154FA916B883}
+	EndGlobalSection
+EndGlobal
