@@ -1,0 +1,10 @@
+C:\Users\paull\Documents\0-Scolaire\0-ENJMIN\USRS46  - Programmation C# - POO\Jeu de la Vie Graphique\Jeu de la Vie C#\Jeu de la Vie Graphique\bin\Debug\Jeu de la Vie Graphique.exe.config
+C:\Users\paull\Documents\0-Scolaire\0-ENJMIN\USRS46  - Programmation C# - POO\Jeu de la Vie Graphique\Jeu de la Vie C#\Jeu de la Vie Graphique\bin\Debug\Jeu de la Vie Graphique.exe
+C:\Users\paull\Documents\0-Scolaire\0-ENJMIN\USRS46  - Programmation C# - POO\Jeu de la Vie Graphique\Jeu de la Vie C#\Jeu de la Vie Graphique\bin\Debug\Jeu de la Vie Graphique.pdb
+C:\Users\paull\Documents\0-Scolaire\0-ENJMIN\USRS46  - Programmation C# - POO\Jeu de la Vie Graphique\Jeu de la Vie C#\Jeu de la Vie Graphique\obj\Debug\Jeu de la Vie Graphique.csproj.AssemblyReference.cache
+C:\Users\paull\Documents\0-Scolaire\0-ENJMIN\USRS46  - Programmation C# - POO\Jeu de la Vie Graphique\Jeu de la Vie C#\Jeu de la Vie Graphique\obj\Debug\Jeu_de_la_Vie_Graphique.Form1.resources
+C:\Users\paull\Documents\0-Scolaire\0-ENJMIN\USRS46  - Programmation C# - POO\Jeu de la Vie Graphique\Jeu de la Vie C#\Jeu de la Vie Graphique\obj\Debug\Jeu_de_la_Vie_Graphique.Properties.Resources.resources
+C:\Users\paull\Documents\0-Scolaire\0-ENJMIN\USRS46  - Programmation C# - POO\Jeu de la Vie Graphique\Jeu de la Vie C#\Jeu de la Vie Graphique\obj\Debug\Jeu de la Vie Graphique.csproj.GenerateResource.cache
+C:\Users\paull\Documents\0-Scolaire\0-ENJMIN\USRS46  - Programmation C# - POO\Jeu de la Vie Graphique\Jeu de la Vie C#\Jeu de la Vie Graphique\obj\Debug\Jeu de la Vie Graphique.csproj.CoreCompileInputs.cache
+C:\Users\paull\Documents\0-Scolaire\0-ENJMIN\USRS46  - Programmation C# - POO\Jeu de la Vie Graphique\Jeu de la Vie C#\Jeu de la Vie Graphique\obj\Debug\Jeu de la Vie Graphique.exe
+C:\Users\paull\Documents\0-Scolaire\0-ENJMIN\USRS46  - Programmation C# - POO\Jeu de la Vie Graphique\Jeu de la Vie C#\Jeu de la Vie Graphique\obj\Debug\Jeu de la Vie Graphique.pdb

@@ -2,11 +2,13 @@
 using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 
 public class Grid
 {
 	private int _n { get; set; } //Number of cells per row and per column
 	public Cell[,] TabCells; //2 dimensional array that stores all the cells 
+	public Graphics Canvas;
 	public Grid(int nbCells, List<Coords> aliveCellsCoords)
 	{
 		this._n = nbCells;
@@ -24,6 +26,7 @@ public class Grid
 				TabCells[i, j] = new Cell(found);
 			}
 		}
+
 	}
 	public int GetNbAliveNeighboor(int i, int j)
 	{
@@ -63,7 +66,7 @@ public class Grid
 		}
 		return coordsNeighboorAlive;
 	}
-	public void DisplayGrid()
+	public void DisplayConsoleGrid()
 	{
 		//Displays the grid and all the cells
 		string sep = "+";
@@ -86,11 +89,11 @@ public class Grid
 	public void UpdateGrid()
 	{
 		//Updates the grid by killing the cells that are surrounded by more than 3 cells or less than 2 and giving birth to cells that are surrounded by 3 cells
-		DisplayGrid();
+		
 		int nbAliveNeighboor;
-		for (int y = 0; y < _n; y++)
+		for (int x = 0; x < _n; x++)
 		{
-			for (int x = 0; x < _n; x++)
+			for (int y = 0; y < _n; y++)
 			{
 				nbAliveNeighboor = GetNbAliveNeighboor(x, y);
 				if (nbAliveNeighboor == 3) { TabCells[x, y].ComeAlive(); }
