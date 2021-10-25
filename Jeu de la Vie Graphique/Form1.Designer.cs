@@ -6,7 +6,6 @@ namespace Jeu_de_la_Vie_Graphique
 {
     partial class Form1
     {
-        public int cellSize;
         /// <summary>
         /// Variable nécessaire au concepteur.
         /// </summary>
@@ -41,6 +40,7 @@ namespace Jeu_de_la_Vie_Graphique
             this.ProbaAlive = new System.Windows.Forms.NumericUpDown();
             this.ProbaAliveLab = new System.Windows.Forms.Label();
             this.RandCellButton = new System.Windows.Forms.Button();
+            this.ClearButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.CanvasBox)).BeginInit();
             this.ParametersBox.SuspendLayout();
             this.SuspendLayout();
@@ -49,7 +49,7 @@ namespace Jeu_de_la_Vie_Graphique
             // 
             this.CanvasBox.Location = new System.Drawing.Point(0, 0);
             this.CanvasBox.Name = "CanvasBox";
-            this.CanvasBox.Size = new System.Drawing.Size(5 * n, 5 * n);
+            this.CanvasBox.Size = new System.Drawing.Size(cellSize * n, cellSize * n);
             this.CanvasBox.TabIndex = 0;
             this.CanvasBox.TabStop = false;
             this.CanvasBox.BackColor = Color.Black;
@@ -88,11 +88,22 @@ namespace Jeu_de_la_Vie_Graphique
             // 
             this.RandCellButton.Location = new System.Drawing.Point(parametersXOffset, 90);
             this.RandCellButton.Name = "RandCellButton";
-            this.RandCellButton.Size = new System.Drawing.Size(200, 20);
+            this.RandCellButton.Size = new System.Drawing.Size(250 - 2 * parametersXOffset, 20);
             this.RandCellButton.TabIndex = 6;
             this.RandCellButton.Text = "Place random cells";
             this.RandCellButton.UseVisualStyleBackColor = true;
             this.RandCellButton.Click += new System.EventHandler(this.RandCellButton_Click);
+            // 
+            // ClearButton
+            // 
+            this.ClearButton.Location = new System.Drawing.Point(parametersXOffset, 120);
+            this.ClearButton.Name = "ClearButton";
+            this.ClearButton.Size = new System.Drawing.Size(250 - 2 * parametersXOffset, 20);
+            this.ClearButton.TabIndex = 6;
+            this.ClearButton.Text = "Clean the canvas";
+            this.ClearButton.UseVisualStyleBackColor = true;
+            this.ClearButton.Click += new System.EventHandler(this.ClearCanvas);
+            //this.RandCellButton.Click += new System.EventHandler(this.placeSquare);
             // 
             // ParametersBox
             // 
@@ -100,16 +111,17 @@ namespace Jeu_de_la_Vie_Graphique
             this.ParametersBox.Controls.Add(this.ProbaAlive);
             this.ParametersBox.Controls.Add(this.ProbaAliveLab);
             this.ParametersBox.Controls.Add(this.RandCellButton);
-            this.ParametersBox.Location = new System.Drawing.Point(5 * n + 5, 0);
+            this.ParametersBox.Controls.Add(this.ClearButton);
+            this.ParametersBox.Location = new System.Drawing.Point(cellSize * n + 5, 0);
             this.ParametersBox.Name = "ParametersBox";
-            this.ParametersBox.Size = new System.Drawing.Size(250, 5 * n);
+            this.ParametersBox.Size = new System.Drawing.Size(250, cellSize * n);
             this.ParametersBox.TabIndex = 2;
             this.ParametersBox.TabStop = false;
             this.ParametersBox.Text = "Parameters";
             // 
             // Form1
             // 
-            this.ClientSize = new System.Drawing.Size(5 * n + 255, 5 * n);
+            this.ClientSize = new System.Drawing.Size(cellSize * n + 255, cellSize * n);
             this.Controls.Add(this.ParametersBox);
             this.Controls.Add(this.CanvasBox);
             this.Name = "Form1";
@@ -126,9 +138,10 @@ namespace Jeu_de_la_Vie_Graphique
         private CheckBox PlayBox;
         private GroupBox ParametersBox;
         private PictureBox CanvasBox;
-        private Button RandCellButton;
         private System.Windows.Forms.NumericUpDown ProbaAlive;
         private System.Windows.Forms.Label ProbaAliveLab;
+        private Button RandCellButton;
+        private Button ClearButton;
     }
 }
 

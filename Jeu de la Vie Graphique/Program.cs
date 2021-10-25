@@ -16,7 +16,7 @@ namespace Jeu_de_la_Vie_Graphique
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1(140));
+            Application.Run(new Form1(200));
         }
     }
 }

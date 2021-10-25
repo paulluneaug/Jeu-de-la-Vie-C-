@@ -6,15 +6,17 @@ using System.Drawing;
 public class Game
 {
 	private int n;
+	private int cellSize;
 	private int iter;
 	public Grid grid;
 	private readonly List<Coords> AliveCellsCoords;
-	public Game(int nbCells)
+	public Game(int nbCells, int cellSize)
 	{
 		this.n = nbCells; //Number of cells per row and per column
+		this.cellSize = cellSize;
 		this.AliveCellsCoords = new List<Coords>(); // Coordinates of the cells, alive at the beginning
-		List<(int, int)> AliveCells = new List<(int, int)>() //List of the coordinates of the cells used to create a glider gun
-		{ (0,5),(0,6),(1,5),(1,6),(10,5),(10,6),(10,7),(11,4),(11,8),(12,3),(12,9),(13,3),(13,9),(14,6),(15,4),(15,8),(16,5),(16,6),(16,7),(17,6),(20,3),(20,4),(20,5),(21,3),(21,4),(21,5),(22,2),(22,6),(24,1),(24,2),(24,6),(24,7),(34,3),(34,4),(35,3),(35,4)};
+		List<(int, int)> AliveCells = new List<(int, int)>(); //List of the coordinates of the cells used to create a glider gun
+		//{ (0,5),(0,6),(1,5),(1,6),(10,5),(10,6),(10,7),(11,4),(11,8),(12,3),(12,9),(13,3),(13,9),(14,6),(15,4),(15,8),(16,5),(16,6),(16,7),(17,6),(20,3),(20,4),(20,5),(21,3),(21,4),(21,5),(22,2),(22,6),(24,1),(24,2),(24,6),(24,7),(34,3),(34,4),(35,3),(35,4)};
 		
 		foreach ((int, int) coor in AliveCells)
         {
@@ -22,9 +24,9 @@ public class Game
         }
 
 
-		grid = new Grid(this.n, this.AliveCellsCoords);
+		grid = new Grid(this.n, this.cellSize, this.AliveCellsCoords);
 	}
-	public Game(int nbCells, int nbIterations) : this (nbCells)
+	public Game(int nbCells, int cellSize, int nbIterations) : this (nbCells, cellSize)
 	{
 		this.iter = nbIterations; //Number of iterations before stopping the simulation
 	}
@@ -45,7 +47,7 @@ public class Game
 			{
 				if (grid.TabCells[i, j].IsAlive)
 				{
-					g.FillRectangle(whiteBrush, j * 5, i * 5, 5, 5);
+					g.FillRectangle(whiteBrush, j * cellSize, i * cellSize, cellSize, cellSize);
 				}
 			}
 		}

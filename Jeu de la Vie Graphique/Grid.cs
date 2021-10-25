@@ -7,11 +7,13 @@ using System.Drawing;
 public class Grid
 {
 	private int _n { get; set; } //Number of cells per row and per column
+	private int cellSize;
 	public Cell[,] TabCells; //2 dimensional array that stores all the cells 
 	public Graphics Canvas;
-	public Grid(int nbCells, List<Coords> aliveCellsCoords)
+	public Grid(int nbCells, int cellSize, List<Coords> aliveCellsCoords)
 	{
 		this._n = nbCells;
+		this.cellSize = cellSize;
 		this.TabCells = new Cell[this._n, this._n];
 		//Creates all the cells and check if they are alive or not
 		for (int i = 0; i < _n; i++)

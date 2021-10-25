@@ -14,12 +14,14 @@ namespace Jeu_de_la_Vie_Graphique
     {
         private Game game;
         public int n;
+        public int cellSize;
         private Timer MainTimer;
         private Random rnd;
         public Form1(int n)
         {
             this.n = n;
-            this.game = new Game(this.n);
+            this.cellSize = 4;
+            this.game = new Game(this.n, this.cellSize);
             InitializeComponent(this.n);
 
             this.MainTimer = new Timer();
@@ -46,11 +48,18 @@ namespace Jeu_de_la_Vie_Graphique
         }
         private void CanvasBox_Click(object sender, MouseEventArgs e)
         {
-            int mouseX = (int)(e.Y / 5), mouseY = (int)(e.X / 5);
+            int mouseX = (int)(e.Y / cellSize), mouseY = (int)(e.X / cellSize);
             if (0 <= mouseX && mouseX < this.n && 0 <= mouseY && mouseY < this.n)
             {
                 Cell cell = game.grid.TabCells[mouseX, mouseY];
-                cell.ComeAlive();
+                if (e.Button == MouseButtons.Left)
+                {
+                    cell.ComeAlive();
+                }
+                else if (e.Button == MouseButtons.Right)
+                {
+                    cell.PassAway();
+                }
                 cell.Update();
                 CanvasBox.Refresh();
             }
@@ -89,5 +98,31 @@ namespace Jeu_de_la_Vie_Graphique
             this.CanvasBox.Refresh();
         }
 
+        private void ClearCanvas(object sender, EventArgs e)
+        {
+            foreach(Cell c in game.grid.TabCells)
+            {
+                c.PassAway();
+                c.Update();
+            }
+            CanvasBox.Refresh();
+        }
+
+        private void placeSquare(object sender, EventArgs e)
+        {
+            int x0 = 59, y0 = 59;
+            int squareX = 80, squareY = 80;
+
+            for (int i = x0; i < squareX + x0; i++)
+            {
+                for (int j = y0; j < squareY + y0; j++)
+                {
+                    game.grid.TabCells[i, j].ComeAlive();
+                    game.grid.TabCells[i, j].Update();
+
+                }
+            }
+            this.CanvasBox.Refresh();
+        }
     }
 }
