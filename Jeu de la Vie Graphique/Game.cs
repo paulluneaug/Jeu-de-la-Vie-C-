@@ -47,7 +47,7 @@ public class Game
 			{
 				if (grid.TabCells[i, j].IsAlive)
 				{
-					g.FillRectangle(whiteBrush, j * cellSize, i * cellSize, cellSize, cellSize);
+					g.FillRectangle(whiteBrush, i * cellSize, j * cellSize, cellSize, cellSize);
 				}
 			}
 		}

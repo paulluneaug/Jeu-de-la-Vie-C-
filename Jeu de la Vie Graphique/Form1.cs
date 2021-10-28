@@ -49,7 +49,8 @@ namespace Jeu_de_la_Vie_Graphique
         }
         private void CanvasBox_Click(object sender, MouseEventArgs e)
         {
-            int mouseX = (int)(e.Y / cellSize), mouseY = (int)(e.X / cellSize);
+            int mouseX = (int)(e.X / cellSize), mouseY = (int)(e.Y / cellSize);
+            Console.WriteLine("{0}, {1}", mouseX, mouseY);
             if (0 <= mouseX && mouseX < this.n && 0 <= mouseY && mouseY < this.n)
             {
                 Cell cell = game.grid.TabCells[mouseX, mouseY];
@@ -126,9 +127,27 @@ namespace Jeu_de_la_Vie_Graphique
 
         private void GetPatternToPlace(object sender, EventArgs e)
         {
-            
+            int x, y;
             if (System.IO.File.Exists($@"..\..\..\Game of Life Pattern Identifier\TXTPatterns\{this.PatternsComboBox.SelectedItem}.txt"))
-                PlacePattern((string)this.PatternsComboBox.SelectedItem, 100,100);
+            {
+                if (this.CenterPatternBox.Checked)
+                {
+                    int patternX = 0;
+                    string[] lines = System.IO.File.ReadAllLines($@"..\..\..\Game of Life Pattern Identifier\TXTPatterns\{this.PatternsComboBox.SelectedItem}.txt");
+                    foreach (string line in lines)
+                    {
+                        patternX = Math.Max(patternX, line.Length);
+                    }
+                    x = (int)((this.n - patternX) / 2);
+                    y = (int)((this.n - lines.Length) / 2);
+                }
+                else
+                {
+                    x = (int) CustomXPattern.Value;
+                    y = (int) CustomYPattern.Value;
+                }
+                PlacePattern((string)this.PatternsComboBox.SelectedItem, x, y);
+            }
         }
         private void PlacePattern(string patternName, int x, int y)
         {
@@ -137,16 +156,15 @@ namespace Jeu_de_la_Vie_Graphique
             int nbLines = lines.Length;
             int xCell, yCell;
 
-            for (int i = 0; i < nbLines; i++)
+            for (int j = 0; j < nbLines; j++)
             {
-                int linesLength = lines[i].Length;
-                for (int j = 0; j < linesLength; j++)
+                int linesLength = lines[j].Length;
+                for (int i = 0; i < linesLength; i++)
                 {
                     xCell = x + i; yCell = y + j;
                     if (0 <= xCell && xCell < this.n && 0 <= yCell && yCell < this.n)
                     {
-                        Console.WriteLine($"{i}; {j}");
-                        if (lines[i][j] == '0')
+                        if (lines[j][i] == '0')
                         {
                             game.grid.TabCells[xCell, yCell].ComeAlive();
                         }
@@ -177,6 +195,14 @@ namespace Jeu_de_la_Vie_Graphique
                 }
             }
             this.CanvasBox.Refresh();
+        }
+
+        private void CenterPatternBox_Clicked(object sender, EventArgs e)
+        {
+            this.CustomXPattern.Enabled = !this.CenterPatternBox.Checked;
+            this.CustomYPattern.Enabled = !this.CenterPatternBox.Checked;
+            
+            
         }
     }
 }
