@@ -41,6 +41,10 @@ namespace Jeu_de_la_Vie_Graphique
             this.ProbaAliveLab = new System.Windows.Forms.Label();
             this.RandCellButton = new System.Windows.Forms.Button();
             this.ClearButton = new System.Windows.Forms.Button();
+            this.PatternsComboBox = new System.Windows.Forms.ComboBox();
+            this.PatternButton = new System.Windows.Forms.Button();
+            this.PatternsBox = new System.Windows.Forms.GroupBox();
+
             ((System.ComponentModel.ISupportInitialize)(this.CanvasBox)).BeginInit();
             this.ParametersBox.SuspendLayout();
             this.SuspendLayout();
@@ -105,6 +109,38 @@ namespace Jeu_de_la_Vie_Graphique
             this.ClearButton.Click += new System.EventHandler(this.ClearCanvas);
             //this.RandCellButton.Click += new System.EventHandler(this.placeSquare);
             // 
+            // PatternsComboBox
+            // 
+            this.PatternsComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.PatternsComboBox.DropDownWidth = 250 - 2 * parametersXOffset;
+            this.PatternsComboBox.FormattingEnabled = true;
+            this.PatternsComboBox.Location = new System.Drawing.Point(0,0);
+            this.PatternsComboBox.Name = "PatternsBox";
+            this.PatternsComboBox.Size = new System.Drawing.Size(250 - 2 * parametersXOffset, 20);
+            this.PatternsComboBox.TabIndex = 14;
+            this.PatternsComboBox.MouseClick += new MouseEventHandler(this.FindPatterns);
+            // 
+            // PatternButton
+            // 
+            this.PatternButton.Location = new System.Drawing.Point(0,30);
+            this.PatternButton.Name = "Pattern";
+            this.PatternButton.Size = new System.Drawing.Size(250 - 2 * parametersXOffset, 20);
+            this.PatternButton.TabIndex = 6;
+            this.PatternButton.Text = "Place the pattern";
+            this.PatternButton.UseVisualStyleBackColor = true;
+            this.PatternButton.Click += new System.EventHandler(this.GetPatternToPlace);
+            // 
+            // PatternsBox
+            // 
+
+            this.PatternsBox.Controls.Add(this.PatternsComboBox);
+            this.PatternsBox.Controls.Add(this.PatternButton);
+            this.PatternsBox.Location = new System.Drawing.Point(parametersXOffset, 150);
+            this.PatternsBox.Name = "ParametersBox";
+            this.PatternsBox.Size = new System.Drawing.Size(250 - 2 * parametersXOffset, 100);
+            this.PatternsBox.TabIndex = 2;
+            this.PatternsBox.TabStop = false;
+            // 
             // ParametersBox
             // 
             this.ParametersBox.Controls.Add(this.PlayBox);
@@ -112,6 +148,7 @@ namespace Jeu_de_la_Vie_Graphique
             this.ParametersBox.Controls.Add(this.ProbaAliveLab);
             this.ParametersBox.Controls.Add(this.RandCellButton);
             this.ParametersBox.Controls.Add(this.ClearButton);
+            this.ParametersBox.Controls.Add(this.PatternsBox);
             this.ParametersBox.Location = new System.Drawing.Point(cellSize * n + 5, 0);
             this.ParametersBox.Name = "ParametersBox";
             this.ParametersBox.Size = new System.Drawing.Size(250, cellSize * n);
@@ -141,7 +178,10 @@ namespace Jeu_de_la_Vie_Graphique
         private System.Windows.Forms.NumericUpDown ProbaAlive;
         private System.Windows.Forms.Label ProbaAliveLab;
         private Button RandCellButton;
-        private Button ClearButton;
+        private Button ClearButton; 
+        private System.Windows.Forms.ComboBox PatternsComboBox;
+        private Button PatternButton;
+        private GroupBox PatternsBox;
     }
 }
 

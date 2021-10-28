@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -106,6 +107,59 @@ namespace Jeu_de_la_Vie_Graphique
                 c.Update();
             }
             CanvasBox.Refresh();
+        }
+        
+        private void FindPatterns(object sender, EventArgs e)
+        {
+            string filepath = $@"..\..\..\Game of Life Pattern Identifier\TXTPatterns";
+            DirectoryInfo d = new DirectoryInfo(filepath);
+
+            this.PatternsComboBox.Items.Clear();
+            Console.WriteLine("Seeking");
+            Console.WriteLine(d.FullName);
+            foreach (var file in d.GetFiles("*.txt"))
+            {
+                Console.WriteLine(file.Name);
+                this.PatternsComboBox.Items.Add(file.Name.Replace(".txt",""));
+            }
+        }
+
+        private void GetPatternToPlace(object sender, EventArgs e)
+        {
+            
+            if (System.IO.File.Exists($@"..\..\..\Game of Life Pattern Identifier\TXTPatterns\{this.PatternsComboBox.SelectedItem}.txt"))
+                PlacePattern((string)this.PatternsComboBox.SelectedItem, 100,100);
+        }
+        private void PlacePattern(string patternName, int x, int y)
+        {
+
+            string[] lines = System.IO.File.ReadAllLines($@"..\..\..\Game of Life Pattern Identifier\TXTPatterns\{patternName}.txt");
+            int nbLines = lines.Length;
+            int xCell, yCell;
+
+            for (int i = 0; i < nbLines; i++)
+            {
+                int linesLength = lines[i].Length;
+                for (int j = 0; j < linesLength; j++)
+                {
+                    xCell = x + i; yCell = y + j;
+                    if (0 <= xCell && xCell < this.n && 0 <= yCell && yCell < this.n)
+                    {
+                        Console.WriteLine($"{i}; {j}");
+                        if (lines[i][j] == '0')
+                        {
+                            game.grid.TabCells[xCell, yCell].ComeAlive();
+                        }
+                        else
+                        {
+                            game.grid.TabCells[xCell, yCell].PassAway();
+                        }
+                        game.grid.TabCells[xCell, yCell].Update();
+                    }
+                    
+                }
+            }
+            this.CanvasBox.Refresh();
         }
 
         private void placeSquare(object sender, EventArgs e)
