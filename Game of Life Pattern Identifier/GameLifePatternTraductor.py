@@ -58,4 +58,4 @@ def ChangeLine(allLines, lineToAdd):
     return allLines, ""
     
     
-GameLifePatternTraductor("HalfMaxV2")
+GameLifePatternTraductor("2Big")
